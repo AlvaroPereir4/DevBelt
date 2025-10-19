@@ -1,40 +1,62 @@
 # DevTools Toolkit
 
-Uma caixa de ferramentas moderna para desenvolvedores, construída com Next.js 14 e otimizada para Vercel.
+A modern and lightweight toolbox for developers, built with Next.js 14 and TypeScript.
 
-## 🚀 Ferramentas Disponíveis
+## Features
 
-- **JSON Formatter** - Formatar e minificar JSON
-- **Hash Generator** - MD5, SHA-1, SHA-256
-- **Base64 Encoder/Decoder** - Codificar e decodificar Base64
-- **URL Encoder** - Codificar e decodificar URLs
-- **Color Picker** - Paleta de cores e conversores
-- **Regex Tester** - Testar expressões regulares
+  - **JSON Formatter:** Format, validate, and minify JSON data.
+  - **Hash Generator:** Generate MD5, SHA-1, and SHA-256 hashes from text.
+  - **Base64 Encoder/Decoder:** Encode and decode strings using Base64.
+  - **URL Encoder/Decoder:** Encode and decode URL components.
+  - **Color Picker:** Select colors and convert between formats (Hex, RGB, HSL).
+  - **Regex Tester:** Validate and test regular expressions against strings.
 
-## 🛠️ Tecnologias
+## Tech Stack
 
-- Next.js 14 (App Router)
-- TypeScript
-- Tailwind CSS
-- Lucide React (ícones)
+  - Next.js 14 (App Router)
+  - TypeScript
+  - Tailwind CSS
+  - Lucide React (for icons)
 
-## 📦 Instalação
+## Getting Started
 
-```bash
-npm install
-npm run dev
-```
+To get a local copy up and running, follow these steps.
 
-## 🚀 Deploy no Vercel
+1.  **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/your-username/devtools-toolkit.git
+    cd devtools-toolkit
+    ```
+
+2.  **Install dependencies:**
+
+    ```bash
+    npm install
+    ```
+
+3.  **Run the development server:**
+
+    ```bash
+    npm run dev
+    ```
+
+    Open [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000) in your browser to see the result.
+
+## Deployment
+
+This project is optimized for deployment on Vercel.
+
+To deploy your instance, install the Vercel CLI and run the following command:
 
 ```bash
 vercel --prod
 ```
 
-## 🎨 Personalização
+## Customization
 
-O projeto foi construído para ser facilmente personalizável:
+The project is structured for easy extension:
 
-- Adicione novas ferramentas em `app/tools/`
-- Modifique o tema em `app/globals.css`
-- Adicione novos cards na página inicial em `app/page.tsx`
+  - **Add a new tool:** Create a new component in the `app/tools/` directory.
+  - **Modify styling:** Global styles and Tailwind CSS configuration can be adjusted in `app/globals.css` and `tailwind.config.ts`.
+  - **Update the homepage:** Add a new card for your tool in `app/page.tsx`.
