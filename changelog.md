@@ -1,0 +1,1 @@
+    - Add main.js to every function about js.
