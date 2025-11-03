@@ -4,7 +4,7 @@ const tools = {
     bbox: `<div class="bg-black/80 backdrop-blur-sm rounded-lg p-4 border border-gray-800 h-full flex flex-col bbox-visualizer"><div class="flex justify-between items-center mb-2"><h2 class="text-lg font-bold text-blue-400">bbox-visualizer</h2><div><button id="bboxTestBtn">Teste</button><button id="bboxClearAllBtn">Limpar Tudo</button></div></div><div id="bbox-tabs" class="tool-tabs"></div><div class="controls-grid flex-grow"><div class="image-section flex flex-col"><input id="bboxFileInput" type="file" accept="image/*" class="hidden" /><div id="bboxDropzone" class="image-display-box flex-grow cursor-pointer border-dashed border-2 border-gray-600 hover:border-blue-600 transition-colors"><div id="bboxPlaceholder" class="text-center text-gray-500"><p>Drag & drop an image here</p><p class="text-xs">or click to select a file</p></div><div class="image-analysis-container" id="bboxImageContainer" style="display:none;"><img id="bboxDamageImage" class="damage-image" /><div id="bboxOverlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;"></div></div></div></div><div class="controls"><div class="mb-2"><label class="text-xs text-gray-500">Modo:</label><select id="bboxMode"><option value="redamage">JSON Redamage</option><option value="manual">Manual</option></select></div><div id="bboxRedamageRow" class="mb-2"><label class="text-xs text-gray-500">Cole o JSON da Redamage:</label><textarea id="bboxRedamageJson"></textarea><button id="bboxLoadRedamage" class="mt-1">Carregar Bboxes</button></div><div id="bboxManualRow" style="display:none;" class="mb-2"><label class="text-xs text-gray-500">Coordenadas:</label><input id="bboxManualBox" placeholder="[x1,y1,x2,y2]" class="mb-1" /><label class="text-xs text-gray-500">Label:</label><input id="bboxManualInfo" placeholder="label" /><button id="bboxAddManual" class="mt-1">Adicionar</button></div><div class="mb-2"><label class="text-xs font-bold">Bboxes Detectados</label><div id="bboxBoxesList" class="bbox-list mt-1"></div></div></div></div></div>`,
     timestamp: `<div class="bg-black/80 backdrop-blur-sm rounded-lg p-4 border border-gray-800"><div class="mb-4"><h2 class="text-lg font-bold text-blue-400">Timestamp Generator - ObjectID</h2><p class="text-xs text-gray-600">Gere ObjectIDs do MongoDB a partir de um período.</p></div><div class="space-y-4"><div class="grid grid-cols-2 gap-4"><div><label class="block text-xs text-gray-500 mb-1">Data de Início</label><input type="date" id="ts-start-date" class="w-full bg-gray-900 border border-gray-700 rounded p-2 text-xs"></div><div><label class="block text-xs text-gray-500 mb-1">Hora de Início</label><input type="time" id="ts-start-time" step="1" class="w-full bg-gray-900 border border-gray-700 rounded p-2 text-xs"></div></div><div class="grid grid-cols-2 gap-4"><div><label class="block text-xs text-gray-500 mb-1">Data Final</label><input type="date" id="ts-end-date" class="w-full bg-gray-900 border border-gray-700 rounded p-2 text-xs"></div><div><label class="block text-xs text-gray-500 mb-1">Hora Final</label><input type="time" id="ts-end-time" step="1" class="w-full bg-gray-900 border border-gray-700 rounded p-2 text-xs"></div></div><div class="mt-4"><button id="ts-generate-btn" class="px-3 py-2 bg-blue-800 text-white text-xs rounded hover:bg-blue-900">GERAR</button></div><div class="mt-4 space-y-2"><div><label class="block text-xs text-gray-500 mb-1">Start ID</label><div class="flex"><input id="ts-start-id-output" readonly class="w-full p-2 bg-black/80 border border-gray-700 rounded-l text-xs font-mono text-blue-400"><button onclick="copyText('ts-start-id-output')" class="px-2 bg-blue-700 rounded-r text-xs">COPY</button></div></div><div><label class="block text-xs text-gray-500 mb-1">End ID</label><div class="flex"><input id="ts-end-id-output" readonly class="w-full p-2 bg-black/80 border border-gray-700 rounded-l text-xs font-mono text-blue-400"><button onclick="copyText('ts-end-id-output')" class="px-2 bg-blue-700 rounded-r text-xs">COPY</button></div></div></div></div></div>`,
     base64: `<div class="bg-black/80 backdrop-blur-sm rounded-lg p-4 border border-gray-800 h-full flex flex-col base64-viewer"><div class="flex justify-between items-center mb-2"><h2 class="text-lg font-bold text-blue-400">base64-viewer</h2><button id="b64ClearAllBtn" class="px-2 py-1 bg-red-800 text-white text-xs rounded hover:bg-red-900">LIMPAR TUDO</button></div><div id="b64-tabs" class="tool-tabs"></div><div class="grid grid-cols-1 md:grid-cols-2 gap-4 flex-grow"><div class="flex flex-col space-y-2"><div id="b64ImageDropzone" class="image-preview rounded-lg flex-grow flex items-center justify-center cursor-pointer border-2 border-dashed border-gray-600 hover:border-blue-600 transition-colors"><img id="b64ImageView" class="max-w-full max-h-full object-contain" style="display:none;"/><p id="b64ImagePlaceholder" class="text-gray-500 text-center text-sm">Arraste uma imagem ou clique</p></div><input type="file" id="b64FileInput" class="hidden" accept="image/*" /></div><div class="flex flex-col space-y-2"><div class="flex-grow flex flex-col"><textarea id="b64-output" placeholder="Cole o Base64 aqui e clique em Renderizar..." class="base64-output w-full p-2 bg-black/50 border border-gray-700 rounded-t text-xs font-mono text-gray-300 focus:border-blue-600 focus:outline-none flex-grow"></textarea><div class="flex justify-end space-x-2 p-2 bg-gray-800 rounded-b"><button id="b64RenderBtn" class="px-2 py-1 bg-blue-800 text-white text-xs rounded hover:bg-blue-900">RENDERIZAR</button><button id="b64CopyBtn" class="px-2 py-1 bg-blue-700 text-white text-xs rounded hover:bg-blue-800">COPIAR</button></div></div></div></div></div>`,
-    html: `<div class="bg-black/80 backdrop-blur-sm rounded-lg p-4 border border-gray-800 h-full flex flex-col"><div class="mb-3"><h2 class="text-lg font-bold text-blue-400">html-viewer</h2><p class="text-xs text-gray-600">Visualize HTML code</p></div><div class="grid grid-cols-1 lg:grid-cols-2 gap-3 h-full"><div><label class="block text-xs text-gray-500 mb-1">HTML INPUT</label><textarea id="html-input" placeholder="<html>...</html>" class="w-full h-full p-2 bg-black/50 border border-gray-700 rounded text-xs font-mono text-gray-300 focus:border-blue-600 focus:outline-none"></textarea><button onclick="renderHtml()" class="mt-2 px-2 py-1 bg-blue-800 text-white text-xs rounded hover:bg-blue-900">RENDER</button></div><div><label class="block text-xs text-gray-500 mb-1">OUTPUT</label><iframe id="html-output" class="w-full h-full bg-white border border-gray-700 rounded"></iframe></div></div></div>`,
+    html: `<div class="bg-black/80 backdrop-blur-sm rounded-lg p-4 border border-gray-800 h-full flex flex-col"><div class="flex-shrink-0"><div class="mb-3"><h2 class="text-lg font-bold text-blue-400">html-viewer</h2><p class="text-xs text-gray-600">Visualize HTML code</p></div><div class="flex items-center flex-wrap gap-2 mb-2 p-2 bg-gray-900/50 rounded"><button id="format-html-btn" class="px-2 py-1 bg-gray-800 text-white text-xs rounded hover:bg-gray-900">FORMAT</button><div class="flex items-center space-x-2"><input type="text" id="html-find-input" placeholder="Find" class="p-1 bg-black/50 border border-gray-700 rounded text-xs font-mono text-gray-300 focus:border-blue-600 focus:outline-none w-32"><button id="html-find-prev-btn" class="px-2 py-1 bg-gray-700 text-white text-xs rounded hover:bg-gray-600">&lt;</button><button id="html-find-next-btn" class="px-2 py-1 bg-gray-700 text-white text-xs rounded hover:bg-gray-600">&gt;</button><span id="html-match-count" class="text-xs text-gray-500 w-20">0/0 matches</span></div><div class="flex items-center space-x-2"><input type="text" id="html-replace-input" placeholder="Replace" class="p-1 bg-black/50 border border-gray-700 rounded text-xs font-mono text-gray-300 focus:border-blue-600 focus:outline-none w-32"><button id="html-replace-btn" class="px-2 py-1 bg-blue-800 text-white text-xs rounded hover:bg-blue-900">REPLACE</button><button id="html-replace-all-btn" class="px-2 py-1 bg-blue-800 text-white text-xs rounded hover:bg-blue-900">REPLACE ALL</button></div></div></div><div class="grid grid-cols-1 lg:grid-cols-2 gap-3 flex-grow min-h-0"><div class="h-[70vh] flex flex-col"><label class="block text-xs text-gray-500 mb-1 flex-shrink-0">HTML INPUT</label><textarea id="html-input" placeholder="<html>...</html>" class="w-full flex-grow p-2 bg-black/50 border border-gray-700 rounded text-xs font-mono text-gray-300 focus:border-blue-600 focus:outline-none"></textarea></div><div class="h-[70vh] flex flex-col"><label class="block text-xs text-gray-500 mb-1 flex-shrink-0">OUTPUT</label><iframe id="html-output" class="w-full flex-grow bg-white border border-gray-700 rounded"></iframe></div></div></div>`,
     links: `<div class="bg-black/80 backdrop-blur-sm rounded-lg p-4 border border-gray-800 h-full"><div class="mb-4"><h2 class="text-lg font-bold text-blue-400">Usual Sites</h2><p class="text-xs text-gray-600">A collection of handy websites for development.</p></div><ul class="list-disc list-inside space-y-3 text-sm"><li><a href="https://curlconverter.com/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">curl converter <span class="text-gray-500 text-xs">- Convert cURL commands to code.</span></a></li><li><a href="https://jsoncrack.com/editor" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">JSON Crack <span class="text-gray-500 text-xs">- Visualize your JSON data into interactive graphs.</span></a></li><li><a href="https://html.onlineviewer.net/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">HTML Viewer <span class="text-gray-500 text-xs">- A simple and free online HTML viewer.</span></a></li><li><a href="https://cyberchef.io/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">CyberChef <span class="text-gray-500 text-xs">- The Cyber Swiss Army Knife.</span></a></li><li><a href="https://regexr.com/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">RegExr <span class="text-gray-500 text-xs">- Test and debug Regular Expressions.</span></a></li><li><a href="https://gitfluence.com/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">Gitfluence <span class="text-gray-500 text-xs">- Find the right git command.</span></a></li><li><a href="https://base64.guru/converter/encode/pdf" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">Base64 Guru <span class="text-gray-500 text-xs">- Base64 encoder/decoder for various file types.</span></a></li></ul></div>`
 };
 
@@ -41,6 +41,12 @@ let tasks = JSON.parse(localStorage.getItem('todoTasks')) || { todo: [], in_prog
 document.addEventListener('DOMContentLoaded', function() {
     loadGifWindowState();
     updateGifDisplay();
+    initSidebar();
+    initGifWindow();
+    initChangelog();
+});
+
+function initSidebar() {
     document.querySelectorAll('.sidebar-link').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -50,20 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
             showTool(tool);
         });
     });
-    const header = document.getElementById('window-header');
-    header.addEventListener('mousedown', startDrag);
-    document.querySelectorAll('[class*="resize-handle-"]').forEach(handle => {
-        handle.addEventListener('mousedown', (e) => {
-            e.preventDefault(); e.stopPropagation();
-            const classes = e.target.className.split(' ');
-            resizeType = classes.find(c => c.startsWith('resize-handle-')).replace('resize-handle-', '');
-            startResize(e);
-        });
-    });
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', stopDragResize);
-    window.addEventListener('resize', bboxRenderBboxes);
-});
+}
 
 function showTool(tool) {
     document.getElementById('home-content').classList.add('hidden');
@@ -84,17 +77,25 @@ function showTool(tool) {
     if (tool === 'html') initHtmlViewer();
 }
 
-// --- HTML Viewer Functions ---
-function initHtmlViewer() {
-    document.getElementById('html-input').addEventListener('input', renderHtml);
-}
-function renderHtml() {
-    const htmlInput = document.getElementById('html-input').value;
-    const iframe = document.getElementById('html-output');
-    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-    iframeDoc.open();
-    iframeDoc.write(htmlInput);
-    iframeDoc.close();
+// --- Changelog Functions ---
+function initChangelog() {
+    const changelogBtn = document.getElementById('changelog-btn');
+    const modal = document.getElementById('changelog-modal');
+    const closeBtn = document.getElementById('modal-close-btn');
+
+    changelogBtn.addEventListener('click', async () => {
+        const response = await fetch('changelog.md');
+        const markdown = await response.text();
+        document.getElementById('changelog-content').innerHTML = marked.parse(markdown);
+        modal.classList.remove('hidden');
+    });
+
+    closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.add('hidden');
+        }
+    });
 }
 
 // --- Timestamp Generator Functions ---
@@ -515,11 +516,23 @@ function handleDrop(event) {
 }
 
 // --- Core Functions ---
-function formatJson(){const i=document.getElementById('json-input').value,o=document.getElementById('json-output');try{o.value=JSON.stringify(JSON.parse(i),null,2)}catch(t){o.value="ERROR: Invalid JSON"}}
-function minifyJson(){const i=document.getElementById('json-input').value,o=document.getElementById('json-output');try{o.value=JSON.stringify(JSON.parse(i))}catch(t){o.value="ERROR: Invalid JSON"}}
 function copyText(t){const e=document.getElementById(t);e.select(),document.execCommand("copy");const o=event.target,n=o.textContent;o.textContent="COPIED!",setTimeout(()=>{o.textContent=n},1e3)}
 
 // --- GIF Window Functions --- // NOSONAR
+function initGifWindow() {
+    const header = document.getElementById('window-header');
+    header.addEventListener('mousedown', startDrag);
+    document.querySelectorAll('[class*="resize-handle-"]').forEach(handle => {
+        handle.addEventListener('mousedown', (e) => {
+            e.preventDefault(); e.stopPropagation();
+            const classes = e.target.className.split(' ');
+            resizeType = classes.find(c => c.startsWith('resize-handle-')).replace('resize-handle-', '');
+            startResize(e);
+        });
+    });
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', stopDragResize);
+}
 function saveGifWindowState(){const t=document.getElementById("gif-window").getBoundingClientRect(),e={top:t.top,left:t.left,width:t.width,height:t.height};localStorage.setItem("gifWindowState",JSON.stringify(e))}
 function loadGifWindowState(){const t=localStorage.getItem("gifWindowState");if(t){const e=JSON.parse(t),o=document.getElementById("gif-window");o.style.top=`${e.top}px`,o.style.left=`${e.left}px`,o.style.width=`${e.width}px`,o.style.height=`${e.height}px`}}
 function startDrag(t){isDragging=!0;const e=document.getElementById("gif-window").getBoundingClientRect();dragOffset.x=t.clientX-e.left,dragOffset.y=t.clientY-e.top}

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevTools Toolkit</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         body.resizing, body.resizing * { cursor: grabbing !important; }
         .bg-gif {
@@ -96,6 +97,14 @@
         /* Estilos para o Base64 Viewer */
         .base64-viewer .image-preview { min-height: 200px; background-color: #111827; border: 1px solid #374151; }
         .base64-viewer .base64-output { height: 200px; }
+
+        /* Estilos para o HTML Viewer */
+        #html-case-sensitive-btn.active { background-color: #1e40af; }
+
+        /* Estilos para o Modal */
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+        .modal-content { background: #1f2937; border: 1px solid #374151; padding: 1.5rem; border-radius: 0.5rem; max-width: 80%; max-height: 80%; overflow-y: auto; position: relative; }
+        .modal-close { position: absolute; top: 0.5rem; right: 0.5rem; cursor: pointer; font-size: 1.5rem; color: #9ca3af; }
     </style>
 </head>
 <body class="bg-black text-gray-300 font-mono no-select">
@@ -169,9 +178,10 @@
 
     <div id="taskbar" class="fixed bottom-0 left-0 right-0 h-10 bg-gray-900/95 backdrop-blur-sm border-t border-gray-700 flex items-center justify-between px-4">
         <div id="taskbar-items" class="flex space-x-2"></div>
-        <div>
+        <div class="flex items-center space-x-4">
+            <button id="changelog-btn" class="text-xs text-gray-500 hover:underline">Changelog</button>
             <p class="text-xs text-gray-500">
-                repository in
+                | repository in
                 <a href="https://github.com/AlvaroPereir4/DevBelt" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">
                     GitHub
                 </a>
@@ -179,7 +189,16 @@
         </div>
     </div>
 
+    <div id="changelog-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span id="modal-close-btn" class="modal-close">&times;</span>
+            <h2 class="text-lg font-bold text-blue-400 mb-4">Changelog</h2>
+            <div id="changelog-content" class="prose prose-invert"></div>
+        </div>
+    </div>
+
     <script src="js/json-functions.js"></script>
+    <script src="js/html-viewer.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
