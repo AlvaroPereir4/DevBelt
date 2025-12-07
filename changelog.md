@@ -3,6 +3,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1]
 
+    - Feature: improved mobile responsiveness.
     - HTML Viewer Tool: A new tool to write and preview HTML code in real-time.
     - Advanced Search: Added a full-featured search (`Ctrl+F`), replace, and "replace all" functionality to the HTML Viewer.
     - Keyboard Navigation: Pressing "Enter" in the search box now navigates to the next match.
